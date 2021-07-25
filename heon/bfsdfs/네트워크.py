@@ -6,7 +6,7 @@ def solution(n, computers):
             BFS(n, computers, com, visited)
             answer += 1
     return answer
-
+#BFS 한번 다 돌면, +1 한다는 아이디어
 def BFS(n, computers, com, visited):
     visited[com] = True
     queue = []
