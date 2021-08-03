@@ -9,7 +9,7 @@
 4) 시간 초과를 방지하기 위해 K가 N보다 작은 경우는 경로가 딱 하나이므로 바로 출력시킴
 '''
 
-
+# 데크이용
 import sys
 from collections import deque
 
