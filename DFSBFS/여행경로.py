@@ -6,22 +6,23 @@
 1) 주어진 항공권을 모두 사용하라?
 '''
 
+from collections import defaultdict
+
 
 def solution(tickets):
-    tickets.sort(reverse=True)
-    routes = dict()
+    tickets.sort(reverse=True)          # 알파벳 역순으로 정렬
+    routes = defaultdict(list)
     for t1, t2 in tickets:
-        if t1 in routes:
-            routes[t1].append(t2)
-        else:
-            routes[t1] = [t2]
+        routes[t1].append(t2)
+
     stack = ['ICN']
     ans = []
     while stack:
-        top = stack[-1]
-        if top not in routes or len(routes[top]) == 0:
+        v = stack[-1]
+        # 다음 경로가 없거나 경로의 끝에 온 경우
+        if v not in routes or len(routes[v]) == 0:
             ans.append(stack.pop())
-        else:
-            stack.append(routes[top].pop())
-    ans.reverse()
+        else:                                           # 다음 경로를 추가
+            stack.append(routes[v].pop())
+    ans.reverse()       # 다시 원래 순서로 되돌려 리턴
     return ans
