@@ -14,7 +14,7 @@ import sys
 from collections import deque
 
 input = sys.stdin.readline
-
+test = 1
 
 def bfs(N, K):
     Q = deque()
